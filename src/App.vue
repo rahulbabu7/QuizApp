@@ -1,10 +1,17 @@
 <script setup>
-import Quiz from './components/Quiz.vue'
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-<Quiz/>
+    <div class="container">
+        <RouterView />
+    </div>
+
 </template>
 
 <style scoped>
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
 </style>

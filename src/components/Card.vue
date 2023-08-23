@@ -1,15 +1,18 @@
 <script setup>
 import { defineProps } from 'vue';
-
+import { useRouter} from 'vue-router';
+const router = useRouter();
 // const props = defineProps(['quiz']) 
 // console.log(props)
 const {quiz} = defineProps(['quiz'])   //destructure the props and get the quiz 
-console.log(quiz)
+// console.log(quiz)
+
 </script>
 
 <template>
   <div>
-    <section class="card">
+    <section class="card" @click="router.push(`/quiz/${quiz.id}`); ">
+      <!-- <section class="card" @click="router.push({ name: 'quizview',id });"> -->
       <img :src="quiz.img" alt=" MATHS" />
       <section class="card-text">
         <h2>{{ quiz.name }}</h2>

@@ -1,7 +1,7 @@
 <script setup>
 import ques from '../data/Quiz.json'   //importing jsoin file 
 import { ref,watch } from 'vue'
-import Card from './Card.vue';
+import Card from '../components/Card.vue';
 const quizes = ref(ques); //converting the q into a state for search feature  we can for loop through this array
 const search = ref("");
 //const quizes = q;  even without ref we can loop through json using this line . But ref is provided to display cards based on the search results
@@ -20,7 +20,7 @@ watch(search ,()=>{
 })
 </script>
 <template>
-    <div class="container">
+    <div>
         <header>
             <h1> Quizes</h1>
             <input type="text" placeholder="search" v-model.trim="search">
@@ -40,10 +40,7 @@ watch(search ,()=>{
 
 
 <style scoped>
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
+
 
 header {
     margin-bottom: 10px;
