@@ -1,11 +1,11 @@
 <script setup>
 import { defineProps } from 'vue';
-const {question} = defineProps(['question'])
+const {questionStatus} = defineProps(['questionStatus'])
 </script>
 
 <template>
     <header>
-    <h1>Question {{ question }}</h1>
+    <h1>Question {{ questionStatus }}  </h1>
     <div class="bar">
       <div class="completion"></div>
     </div>
