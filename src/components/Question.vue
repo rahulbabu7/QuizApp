@@ -28,3 +28,15 @@ The <legend> provides an accessible name for that group, describing that these o
     </aside>
   </section>
 </template>
+
+<style scoped> 
+ul{
+    list-style-type: none;
+}
+li{
+    margin-bottom: 10px;
+}
+/* fieldset{
+    border: none;
+} */
+</style>

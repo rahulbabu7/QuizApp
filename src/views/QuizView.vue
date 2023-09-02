@@ -30,13 +30,5 @@ h1 {
   width: 0%;
   background-color: rebeccapurple;
 }
-ul{
-    list-style-type: none;
-}
-li{
-    margin-bottom: 10px;
-}
-/* fieldset{
-    border: none;
-} */
+
 </style>
