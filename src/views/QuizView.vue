@@ -48,12 +48,15 @@ const currentQuesIndex = ref(0);
 const quesStatus = computed(()=>{
   return `${currentQuesIndex.value +1} / ${quiz.questions.length}`
 })
-
+const barpercentage = computed(()=>`${currentQuesIndex.value / quiz.questions.length *100}%`)
 
 </script>
 
 <template>
-  <QuizHeader :questionStatus = "quesStatus"/>
+  <QuizHeader 
+  :questionStatus = "quesStatus" 
+  :barpercentage = barpercentage
+  />
   <!-- it is not a state at now -->
   <main>
     <Question :question="quiz.questions[currentQuesIndex]"/> 

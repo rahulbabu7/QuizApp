@@ -1,6 +1,12 @@
 <script setup>
 import { defineProps } from 'vue';
-const {questionStatus} = defineProps(['questionStatus'])
+const {
+  questionStatus,
+  barpercentage
+  } = defineProps([
+    'questionStatus',
+    'barpercentage'
+    ])
 </script>
 
 <template>
@@ -26,7 +32,7 @@ h1 {
 }
 .completion {
   height: 100%;
-  width: 0%;
+  width:barpercentage;
   background-color: rebeccapurple;
 }
 </style>
