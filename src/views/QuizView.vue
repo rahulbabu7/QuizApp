@@ -12,10 +12,36 @@ const quiz = quizes.find((q => q.id===quizId));  //gives an object based on the 
 const currentQuesIndex = ref(0);
 const quesStatus = ref(`${currentQuesIndex.value +1} / ${quiz.questions.length}`)
 
+
+// watch(currentQuesIndex, ()=>{
+
+// quesStatus.value = `${currentQuesIndex.value +1} / ${quiz.questions.length}`
+
+// })
+
 //whenever the currentQuestion index changes the question status also needs to be changes
-watch(currentQuesIndex,()=>{
-  quesStatus.value++;
+watch(()=>currentQuesIndex.value, ()=>{
+  quesStatus.value = `${currentQuesIndex.value +1} / ${quiz.questions.length}`
+
 })
+
+
+// The key differences:
+
+// The first one watches the currentQuesIndex ref directly. This will trigger the callback on any change to currentQuesIndex, even if the value hasn't changed.
+//     The second one watches the result of currentQuesIndex.value. This only triggers when the value changes.
+//     Watching the result function is better for performance - it will only run when needed.
+
+// So the second approach is correct because:
+
+//     It watches the unwrapped value of currentQuesIndex
+//     This avoids unnecessary runs of the callback
+//     More efficient since it only runs when the value changes
+
+// In general, when watching refs, you want to watch the result of .value rather than the ref itself.
+
+// The second example is the better, more performant way to watch a ref value change.
+
 </script>
 
 <template>
