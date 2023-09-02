@@ -13,7 +13,7 @@ const {
     <header>
     <h1>Question {{ questionStatus }}  </h1>
     <div class="bar">
-      <div class="completion"></div>
+      <div class="completion" :style="{ width:barpercentage}"></div>
     </div>
   </header>
 </template>
@@ -32,7 +32,7 @@ h1 {
 }
 .completion {
   height: 100%;
-  width:barpercentage;
+  width:0%;
   background-color: rebeccapurple;
 }
 </style>
