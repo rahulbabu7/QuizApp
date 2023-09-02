@@ -43,7 +43,7 @@ const currentQuesIndex = ref(0);
 // The second example is the better, more performant way to watch a ref value change.
 
 /*
- much more efficient way than using watch
+ use compute for much more efficient way than using watch
 */
 const quesStatus = computed(()=>{
   return `${currentQuesIndex.value} / ${quiz.questions.length}`
