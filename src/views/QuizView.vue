@@ -46,7 +46,7 @@ const currentQuesIndex = ref(0);
  much more efficient way than using watch
 */
 const quesStatus = computed(()=>{
-  return `${currentQuesIndex.value +1} / ${quiz.questions.length}`
+  return `${currentQuesIndex.value} / ${quiz.questions.length}`
 })
 const barpercentage = computed(()=>`${currentQuesIndex.value / quiz.questions.length *100}%`)
 
