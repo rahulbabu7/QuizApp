@@ -26,13 +26,6 @@ watch(search ,()=>{
             <input type="text" placeholder="search" v-model.trim="search">
         </header>
         <main>
-            <!-- <section class="card" v-for="quiz in quizes" :key="quiz.id">
-                <img :src="quiz.img" alt=" MATHS">
-                <section class="card-text">
-                    <h2>{{ quiz.name }}</h2>
-                    <p>{{ quiz.questions.length }}</p>
-                </section>
-            </section> -->
             <Card v-for="quiz in quizes" :key="quiz.id" :quiz="quiz"/>  <!-- :quiz prop -->
         </main>
     </div>
