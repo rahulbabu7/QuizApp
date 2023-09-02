@@ -24,8 +24,10 @@ watch(currentQuesIndex,()=>{
   <main>
     <Question :question="quiz.questions[currentQuesIndex]"/> 
     <!--  here we create a prop question which shows the quiz of our subject  with the question to be displayed  -->
-    <button @click="currentQuesIndex++"> NExt Ques</button>
+    <button @click="currentQuesIndex++"> NEXT Ques</button>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
