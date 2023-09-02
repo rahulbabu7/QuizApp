@@ -3,27 +3,27 @@
 import Question from '../components/Question.vue' ;
 import QuizHeader from '../components/QuizHeader.vue';
 import { useRoute} from 'vue-router';
-import { ref, watch } from 'vue';
+import { ref, computed } from 'vue';
 const route = useRoute();
 import quizes from '../data/Quiz.json'
 // console.log(route.params.id) returns the id of the router
 const quizId = parseInt(route.params.id);
 const quiz = quizes.find((q => q.id===quizId));  //gives an object based on the subject
 const currentQuesIndex = ref(0);
-const quesStatus = ref(`${currentQuesIndex.value +1} / ${quiz.questions.length}`)
+// const quesStatus = ref(`${currentQuesIndex.value +1} / ${quiz.questions.length}`)
 
 
-// watch(currentQuesIndex, ()=>{
+// // watch(currentQuesIndex, ()=>{
 
-// quesStatus.value = `${currentQuesIndex.value +1} / ${quiz.questions.length}`
+// // quesStatus.value = `${currentQuesIndex.value +1} / ${quiz.questions.length}`
+
+// // })
+
+// //whenever the currentQuestion index changes the question status also needs to be changes
+// watch(()=>currentQuesIndex.value, ()=>{
+//   quesStatus.value = `${currentQuesIndex.value +1} / ${quiz.questions.length}`
 
 // })
-
-//whenever the currentQuestion index changes the question status also needs to be changes
-watch(()=>currentQuesIndex.value, ()=>{
-  quesStatus.value = `${currentQuesIndex.value +1} / ${quiz.questions.length}`
-
-})
 
 
 // The key differences:
@@ -41,6 +41,14 @@ watch(()=>currentQuesIndex.value, ()=>{
 // In general, when watching refs, you want to watch the result of .value rather than the ref itself.
 
 // The second example is the better, more performant way to watch a ref value change.
+
+/*
+ much more efficient way than using watch
+*/
+const quesStatus = computed(()=>{
+  return `${currentQuesIndex.value +1} / ${quiz.questions.length}`
+})
+
 
 </script>
 
