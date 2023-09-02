@@ -13,10 +13,10 @@ const currentQuesIndex = ref(0);
 </script>
 
 <template>
-  <QuizHeader />
+  <QuizHeader :question ="quiz.questions[currentQuesIndex].id" />
   <main>
     <Question :question="quiz.questions[currentQuesIndex]"/> 
-    <!--  here we create a prop question which sjows the quiz of our subject  with the question to be displayed  -->
+    <!--  here we create a prop question which shows the quiz of our subject  with the question to be displayed  -->
   </main>
 </template>
 

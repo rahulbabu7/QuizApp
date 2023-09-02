@@ -1,8 +1,11 @@
-
+<script setup>
+import { defineProps } from 'vue';
+const {question} = defineProps(['question'])
+</script>
 
 <template>
     <header>
-    <h1>Question 1/3</h1>
+    <h1>Question {{ question }}</h1>
     <div class="bar">
       <div class="completion"></div>
     </div>
