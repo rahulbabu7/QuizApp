@@ -2,6 +2,7 @@
 
 import Question from '../components/Question.vue' ;
 import QuizHeader from '../components/QuizHeader.vue';
+import Result from '../components/Result.vue'
 import { useRoute} from 'vue-router';
 import { ref, computed } from 'vue';
 const route = useRoute();
@@ -11,6 +12,7 @@ const quizId = parseInt(route.params.id);
 const quiz = quizes.find((q => q.id===quizId));  //gives an object based on the subject
 const currentQuesIndex = ref(0);
 const noOfCorrectAnswers = ref(0);
+const showResults = ref(false)
 // const quesStatus = ref(`${currentQuesIndex.value +1} / ${quiz.questions.length}`)
 
 
@@ -57,6 +59,11 @@ if(isCorrect)
  
   noOfCorrectAnswers.value++;
 }
+if(quiz.questions.length -1 === currentQuesIndex.value)
+{
+  // -1 is used because length starts from 1 and index starts form 0
+  showResults.value = true
+}
 currentQuesIndex.value ++; //incrementing to next ques
 }
 </script>
@@ -68,10 +75,17 @@ currentQuesIndex.value ++; //incrementing to next ques
   />
   <!-- it is not a state at now -->
   <main>
-    <Question :question="quiz.questions[currentQuesIndex]"
+    <Question 
+    v-if="!showResults"
+    :question="quiz.questions[currentQuesIndex]"
     @selectOption="onSelectedOption"
     /> 
     <!--  here we create a prop question which shows the quiz of our subject  with the question to be displayed  -->
+  <Result 
+  v-else
+  :quizQuestionLength = "quiz.questions.length"
+  :noOfCorrectAns = "noOfCorrectAnswers"
+  />
   </main>
 </template>
 
