@@ -50,6 +50,9 @@ const quesStatus = computed(()=>{
 })
 const barpercentage = computed(()=>`${currentQuesIndex.value / quiz.questions.length *100}%`)
 
+const onSelectedOption  =(isCorrect)=>{
+console.log("Hii")
+}
 </script>
 
 <template>
@@ -59,7 +62,9 @@ const barpercentage = computed(()=>`${currentQuesIndex.value / quiz.questions.le
   />
   <!-- it is not a state at now -->
   <main>
-    <Question :question="quiz.questions[currentQuesIndex]"/> 
+    <Question :question="quiz.questions[currentQuesIndex]"
+    @selectOption="onSelectedOption"
+    /> 
     <!--  here we create a prop question which shows the quiz of our subject  with the question to be displayed  -->
     <button @click="currentQuesIndex++"> NEXT Ques</button>
   </main>
