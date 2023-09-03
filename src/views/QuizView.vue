@@ -10,6 +10,7 @@ import quizes from '../data/Quiz.json'
 const quizId = parseInt(route.params.id);
 const quiz = quizes.find((q => q.id===quizId));  //gives an object based on the subject
 const currentQuesIndex = ref(0);
+const noOfCorrectAnswers = ref(0);
 // const quesStatus = ref(`${currentQuesIndex.value +1} / ${quiz.questions.length}`)
 
 
@@ -51,7 +52,12 @@ const quesStatus = computed(()=>{
 const barpercentage = computed(()=>`${currentQuesIndex.value / quiz.questions.length *100}%`)
 
 const onSelectedOption  =(isCorrect)=>{
-console.log("Hii")
+if(isCorrect)
+{
+ 
+  noOfCorrectAnswers.value++;
+}
+currentQuesIndex.value ++; //incrementing to next ques
 }
 </script>
 

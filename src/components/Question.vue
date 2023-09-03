@@ -7,6 +7,10 @@ const {question} = defineProps(['question'])
 
 const emitSelectedOption = (isCorrect)=>{
   emit("selectOption",isCorrect)
+//   emitSelectedOption is the name of the method. It accepts one parameter isCorrect.
+// Inside the method, it calls emit(). This is a function available in all Vue components that allows emitting a custom event up to the parent.
+// The first argument to emit() is the name of the event - here it is "selectOption".
+// The second argument is the payload data to emit - here it is passing the isCorrect value
 
 }
 </script>
