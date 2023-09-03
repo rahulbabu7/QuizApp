@@ -72,7 +72,6 @@ currentQuesIndex.value ++; //incrementing to next ques
     @selectOption="onSelectedOption"
     /> 
     <!--  here we create a prop question which shows the quiz of our subject  with the question to be displayed  -->
-    <button @click="currentQuesIndex++"> NEXT Ques</button>
   </main>
 </template>
 
