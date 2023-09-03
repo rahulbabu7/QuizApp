@@ -1,8 +1,14 @@
 <script setup>
 
-import { defineProps } from 'vue';
+import { defineProps,defineEmits } from 'vue';
+
+const emit = defineEmits(["selectOption"])
 const {question} = defineProps(['question'])
 
+const emitSelectedOption = (isCorrect)=>{
+  emit("selectOption",isCorrect)
+
+}
 </script>
 <template>
   <section>
@@ -12,7 +18,10 @@ const {question} = defineProps(['question'])
         <!-- The <fieldset> groups all the answer choices together, indicating they are related options for a single question.
 The <legend> provides an accessible name for that group, describing that these options are answer choices that the user should select from. -->
         <legend>Select the correct answer:</legend>
-        <ul v-for="option in question.options" :key="option.id">
+        <ul v-for="option in question.options" 
+        :key="option.id"
+        @click="emitSelectedOption(option.isCorrect)"
+        >
           <li>
             <input type="radio" id="`answer{{ option.id }}`" name="answer" />
             <label for="answer1">{{ option.text }}</label>
